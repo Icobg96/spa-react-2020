@@ -4,11 +4,14 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import reducers from './redux/index';
 import Home from './pages/home';
 import Users from './pages/users';
 import Profile from './pages/profile';
 import Navigation from './components/navBar';
-
+const store = createStore(reducers);
 const Layout = props => {
   return (
     <>
@@ -22,6 +25,7 @@ const Layout = props => {
 function App() {
   return (
     <div className="App">
+    <Provider store={store}>
      <Router>
         <Switch>
           <Route path="/profile">
@@ -41,6 +45,7 @@ function App() {
           </Route>
         </Switch>
     </Router>
+    </Provider>
     </div>
   );
 }

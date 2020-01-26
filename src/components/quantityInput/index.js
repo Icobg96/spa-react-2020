@@ -10,12 +10,12 @@ const QuantityInput = props => {
     }
     const renderAlert = count =>{
         if(count > 7){
-            return <div class="alert alert-success" role="alert">Number is ok :)</div>
+            return <div className="alert alert-success" role="alert">Number is ok :)</div>
         }
         if(count < 3){
-            return <div class="alert alert-danger" role="alert">Number is not ok!</div>
+            return <div className="alert alert-danger" role="alert">Number is not ok!</div>
         }
-        return <div class="alert alert-info" role="alert">Number is almost ok :(</div>
+        return <div className="alert alert-info" role="alert">Number is almost ok :(</div>
     }
     return (
         <div>
