@@ -8,4 +8,22 @@ const counter = function (count = 1, action) {
             return count;
     }
 }
-export default combineReducers({counter})
+const movies = function (movies = [], action) {
+    switch (action.type) {
+        case "FETCHED_MOVIES": {
+            return [...action.payload];
+        }
+        default:
+            return movies;
+    }
+}
+const title = function (title = '', action) {
+    switch (action.type) {
+        case "SET_TITLE": {
+            return action.payload;
+        }
+        default:
+            return title;
+    }
+}
+export default combineReducers({counter, movies, title})

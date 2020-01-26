@@ -1,13 +1,19 @@
 import React from 'react';
-import {connect} from 'react-redux'
-
-class Profile extends React.Component{
-
-    render(){
-        return <div>
-            Profile
-            <div>{this.props.counter}</div>
-        </div>
+import { useSelector, useDispatch } from 'react-redux'
+import setActionCount from '../../redux/actions/counter'
+const Profile = props => {
+    const count = useSelector(state => state.counter)
+    const title = useSelector(state => state.title)
+    const dispatch = useDispatch();
+    const setCount = count => dispatch(setActionCount(count));
+    const increment = () => {
+        setCount(count);
     }
+    return <div>
+        Profile
+        <h1>{title}</h1>
+        <button className="btn btn-primary" type="button" onClick={increment}> increment counter </button>
+    <div>{count}</div>
+    </div>
 }
-export default connect(state => ({counter: state.counter}))(Profile);
+export default Profile;
